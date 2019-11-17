@@ -7,7 +7,7 @@ from django.views.decorators.cache import cache_control
 
 # Create your views here.
 
-url = "http://192.168.1.29:8000"
+url = "http://192.168.43.61:8000"
 
 def showMerchantIndex(request):
     try:
@@ -38,8 +38,6 @@ def changePassword(request):
 @cache_control(no_cache=True, must_revalidate=True,no_store=True)
 def loginCheck(request):
     m_email = request.POST.get('m_email')
-    print(m_email)
-    print(type(m_email))
     m_old_password = request.POST.get('m_password')
     try:
         res = requests.get(url+"/check_details/"+m_email+"&"+m_old_password+"/")
