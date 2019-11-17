@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title> Products List </title>
+</head>
+<body>
+{% include 'common/header.html' %}
+{% include 'common/buttons.html' %}
+
+{% if data %}
+<table align="center" border="2" cellpadding="7">
+    <tr style="text-align: center;"><th colspan="6"> Products Details </th></tr>
+    <tr style="text-align: center;">
+        <th style="width: 60px">Product ID</th>
+        <th style="width: 300px">Name</th>
+        <th style="width: 100px">Price</th>
+        <th style="width: 80px">Quantity</th>
+        <th style="width: 80px">Update</th>
+        <th style="width: 80px">Delete</th>
+    </tr>
+    {% for x in data %}
+        <tr>
+            <td>{{ x.pk }}</td>
+            <td>{{ x.fields.p_name }}</td>
+            <td>{{ x.fields.p_price }}</td>
+            <td>{{ x.fields.p_quantity }}</td>
+            <td style="text-align: center"><a href="{% url 'update_product' %}?product_id={{ x.pk }}"><img src="{% static 'images/update.png' %}"></a> </td>
+            <td style="text-align: center"><a href="{% url 'delete_one_product' %}?product_id={{ x.pk }}"><img src="{% static 'images/delete.png' %}"></a> </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{% if message %}
+    <h3 style="text-align: center">{{ message }}</h3>
+{% endif %}
+
+{% for x in messages %}
+        <h3 style="text-align: center">{{ x }}</h3>
+{% endfor %}
+
+</body>
+</html>

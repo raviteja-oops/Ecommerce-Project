@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title> Add Product </title>
+</head>
+<body>
+{% include "common/header.html" %}
+{% include "common/buttons.html" %}
+
+<form action="{% url 'save_product' %}" method="post">  {% csrf_token %}
+<table align="center" cellpadding="10">
+    <tr style="text-align: center;font-size: 30px;color: blueviolet"><th colspan="2"> Product Details </th></tr>
+    <tr><th colspan="2"><input type="hidden" required readonly name="merchant_id" value="{{ data }}"></th></tr>
+    <tr>
+        <td>Product Number</td>
+        <td><input type="number" required name="p_no"></td>
+    </tr>
+    <tr>
+        <td>Product Name</td>
+        <td><input type="text" required name="p_name"></td>
+    </tr>
+    <tr>
+        <td>Product Price</td>
+        <td><input type="number" required name="p_price"></td>
+    </tr>
+    <tr>
+        <td>Product Quantity</td>
+        <td><input type="number" required name="p_quantity"></td>
+    </tr>
+    <tr style="text-align: center"><th colspan="2"><button type="submit" class="btn btn-success"> Save Product </button> </th></tr>
+</table>
+</form>
+{% for x in messages %}
+<h3 style="text-align: center;color: green">{{ x }}</h3>
+{% endfor %}
+
+</body>
+</html>

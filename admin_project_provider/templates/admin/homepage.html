@@ -1,0 +1,28 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>Welcome</title>
+  </head>
+  <body style="background-color: paleturquoise ">
+  {% include 'common/title.html' %}
+  {% include 'common/buttons.html' %}
+          <h1 style="text-align: center;color: blueviolet; font-size: 50px">Welcome to Admin Page</h1>
+          <table align="center" width="50%" cellpadding="10">
+              <tr>
+                  <th colspan="3">
+                      <marquee>
+                         <span>Stay Home and Shop Online</span>
+                      </marquee>
+                  </th>
+              </tr>
+              <tr style="text-align: center">
+                  <th><img src="{%static 'images/homepage/electronics.jpg'  %}" height="150" width="150"><br/><span>ELECTRONICS</span></th>
+                  <th><img src="{%static 'images/homepage/fashion.jpg'  %}" height="150" width="150"><br/><span>FASHION</span></th>
+                  <th><img src="{%static 'images/homepage/home_appliances.jpg'  %}" height="150" width="150"><br/><span>HOME APPLIANCES</span></th>
+              </tr>
+          </table>
+
+
+    </body>
+</html>

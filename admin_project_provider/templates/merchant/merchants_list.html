@@ -1,0 +1,31 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>Merchant List</title>
+  </head>
+  <body>
+  {% include 'common/title.html' %}
+  {% include 'common/buttons.html' %}
+    <table align="center" border="2" cellpadding="10" bgcolor="aqua">
+        <tr style="text-align: center; font-size: 25px;color: blueviolet;"><th colspan="5"> Merchant's List </th></tr>
+        <tr style="text-align: center; background-color: lawngreen">
+            <th> ID Number </th>
+            <th> Name </th>
+            <th> Contact </th>
+            <th> Email ID </th>
+            <th> Delete </th>
+        </tr>
+        {% for x in object_list %}
+            <tr>
+                <th>{{ x.id }}</th>
+                <th>{{ x.merchant_name }}</th>
+                <th>{{ x.merchant_contact }}</th>
+                <th>{{ x.merchant_email }}</th>
+                <th style="text-align: center"><a href="{% url 'delete_merchant' %}?merchentid={{ x.id }}"><img src="{% static 'images/delete.png' %}"></a></th>
+            </tr>
+        {% endfor %}
+    </table>
+
+  </body>
+</html>

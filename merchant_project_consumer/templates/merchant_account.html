@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+<head>
+    {% for x in data %}
+    <title>{{ x.fields.merchant_name }}</title>
+    {% endfor %}
+</head>
+<body>
+
+{% include 'common/header.html' %}
+
+
+{% if data %}
+    {% include 'common/buttons.html' %}
+    <div align="center" style="margin-top: 40px">
+        <h1> Welcome <span style="color: darkorchid">{{ data.merchant_name }}</span> </h1>
+        <h3>Your Register Id : <span style="color: darkorchid">{{ data.id }}</span> </h3>
+    </div>
+{% endif %}
+
+{% if error %}
+    <h2 style="text-align: center;margin-top: 40px">{{ error }}</h2>
+{% endif %}
+
+</body>
+</html>

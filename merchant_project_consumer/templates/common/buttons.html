@@ -1,0 +1,66 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+            <table align="center" cellpadding="30">
+        <tr>
+            <form action="{% url 'homepage' %}">
+            <td>
+                <button style="font-size: 20px;border-radius: 10px" class="btn btn-dark" type="submit">Home</button>
+            </td>
+            </form>
+            <td>
+                <div class="dropdown" style="margin-left: 10px">
+                  <button style="font-size: 20px;border-radius: 10px" class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    Product
+                  </button>
+                  <div style="font-size: 15px" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{% url 'add_product' %}">Add Product</a>
+                    <a class="dropdown-item" href="{% url 'view_products' %}">View/Update/Delete Product</a>
+                  </div>
+                </div>
+            </td>
+            <td>
+                <div class="dropdown" style="margin-left: 10px">
+                  <button style="font-size: 20px;border-radius: 10px" class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sales
+                  </button>
+                  <div style="font-size: 15px" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Day Wise</a>
+                    <a class="dropdown-item" href="#">Week Wise</a>
+                    <a class="dropdown-item" href="#">Month Wise</a>
+                    <a class="dropdown-item" href="#">Year Wise</a>
+                  </div>
+                </div>
+            </td>
+             <form action="//" >
+                 <td>
+                    <button style="font-size: 20px;border-radius: 10px;margin-left: 10px" class="btn btn-dark" type="submit">Customers</button>
+                </td>
+             </form>
+             <form action="//" >
+                 <td>
+                    <button style="font-size: 20px;border-radius: 10px;margin-left: 10px" class="btn btn-dark" type="submit">Complaints</button>
+                 </td>
+             </form>
+             <form action="{% url 'logout' %}" >
+                 <td>
+                 <button style="font-size: 20px;border-radius: 10px;margin-left: 10px" class="btn btn-dark" type="submit">Logout</button>
+                 </td>
+             </form>
+        </tr>
+    </table>
+
+
+  </body>
+</html>
+
+
+
+

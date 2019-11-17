@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title> Edit Product Details </title>
+</head>
+<body>
+{% include 'common/header.html' %}
+{% include 'common/buttons.html' %}
+<form method="post" action="{% url 'save_update_product' %}">   {% csrf_token %}
+{% for x in data %}
+    <table align="center" border="2">
+        <tr style="text-align: center"> <th colspan="2">Update Details</th> </tr>
+        <tr>
+            <td> Product ID : </td>
+            <td><input type="number" readonly required name="product_id" value="{{ x.pk }}"></td>
+        </tr>
+        <tr>
+            <td> Product Name : </td>
+            <td><input type="text" required name="product_name" value="{{ x.fields.p_name }}"></td>
+        </tr>
+        <tr>
+            <td> Product Price : </td>
+            <td><input type="number" required name="product_price" value="{{ x.fields.p_price }}"></td>
+        </tr>
+        <tr>
+            <td> Product Quantity : </td>
+            <td><input type="number" required name="product_quantity" value="{{ x.fields.p_quantity }}"></td>
+        </tr>
+        <tr style="text-align: center"><th colspan="2"><button type="submit"> Update Product </button> </th></tr>
+    </table>
+{% endfor %}
+</form>
+</body>
+</html>
