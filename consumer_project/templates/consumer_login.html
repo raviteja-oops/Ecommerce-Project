@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>Consumer Login</title>
+</head>
+<body>
+{% include 'common/header.html' %}
+
+<table style="width: 90%;">
+    <tr>
+        <td><a href="{% url 'homepage' %}"><img src="{% static 'images/back.png' %}" title="Back"></a></td>
+        <td>
+            <form method="post" action="{% url 'consumer_login_check' %}"> {% csrf_token %}
+                <table align="center" border="0" style="font-weight: bolder" cellpadding="10">
+                    <tr style="text-align: center">
+                        <th colspan="2">LogIn Form</th>
+                    </tr>
+                    <tr>
+                        <td>Email / Mobile Number : </td>
+                        <td><input type="text" required name="email_or_mobile"></td>
+                    </tr>
+                    <tr>
+                        <td>Password : </td>
+                        <td><input type="password" required name="password"></td>
+                    </tr>
+                    <tr style="text-align: center">
+                        <th colspan="2"><button type="submit"> Login </button></th>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>
+
+{% for x in messages %}
+    <h2 style="text-align: center; color: red">{{ x }}</h2>
+{% endfor %}
+</body>
+</html>

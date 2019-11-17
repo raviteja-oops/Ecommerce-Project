@@ -41,5 +41,8 @@ urlpatterns = [
     path('delete_product/<int:p_no>/',merchant_views.ModifyProductDetails.as_view(),name="delete_product"),
 
     #Request from consumer
-    path('get_last_consumer_id/',consumer_views.GetLastConsumerId.as_view(),name='view_consumers')
+    path('all_products/',consumer_views.ShowAllProducts.as_view(),name='all_products'),
+    path('get_last_consumer_id/',consumer_views.GetLastConsumerId.as_view(),name='view_consumers'),
+    path('save_consumer/',consumer_views.ConsumerDetails.as_view(),name='save_consumer'),
+    path('login/<str:email_or_mobile>&<str:password>/',consumer_views.CheckLoginDetails.as_view(),name="login"),
 ]

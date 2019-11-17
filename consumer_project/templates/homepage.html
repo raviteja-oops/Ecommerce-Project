@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<html>
+<body>
+{% include 'common/header.html' %}
+
+<table align="center" border="0" cellpadding="10">
+    <tr style="font-size: 30px">
+        <th>||</th>
+        <th><a style="text-decoration: none" href="{% url 'consumer_login' %}"> Consumer Login </a></th>
+        <th>||</th>
+        <th><a style="text-decoration: none" href="{% url 'consumer_registration' %}"> Consumer Registration </a></th>
+        <th>||</th>
+    </tr>
+</table>
+{% if data %}
+    <table align="center" cellpadding="10" border="2" bgcolor="#00ffff">
+        <tr style="font-size: 20px; color: brown; text-align: center">
+            <th style="width: 100px"> Item ID </th>
+            <th style="width: 300px"> Item Name </th>
+            <th style="width: 100px"> Price </th>
+        </tr>
+        {% for x in data %}
+            <tr style="font-weight: bold">
+                <td style="text-align: center">{{ x.pk }}</td>
+                <td>{{ x.fields.p_name }}</td>
+                <td style="text-align: right">{{ x.fields.p_price }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% for x in messages %}
+    <h2 style="text-align: center; color: red">{{ x }}</h2>
+{% endfor %}
+</body>
+</html>
